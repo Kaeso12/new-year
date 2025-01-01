@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Countdown</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #watch {
+            font-size: 5em;
+        }
+
+        #video {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            /* Align the text vertically */
+            position: absolute;
+            top: 10%;
+            left: 0;
+            width: 100%;
+            height: auto;
+            text-align: center;
+        }
+
+        #text p {
+            margin: 0.5em 0;
+            /* Add some space between lines */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="watch"></div>
+    <video id="video" src="fiirework.mp4"></video>
+    <div id="text">
+        <p>Happy New Year 2025</p>
+        <p>Semoga lulus ujian Yun~</p>
+    </div>
+
+    <script>
+        window.onload = function () {
+            alert(test)
+        }
+        let intervalId = setInterval(updateWatch, 1000);
+
+        function updateWatch() {
+
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('watch').textContent = timeString;
+
+            // Check if it's midnight on New Year's Eve
+            // if (now.getFullYear() === 2025 && now.getMonth() === 0 && now.getDate() === 1 &&
+            //     hours === '00' && minutes === '00' && seconds === '00') {
+            //     const video = document.getElementById('video');
+            //     const watch = document.getElementById('watch');
+            //     watch.style.display = 'none';
+            //     clearInterval(intervalId);
+            //     video.style.display = 'block';
+            //     video.play();
+            // }
+            if (now.getFullYear() === 2024 && now.getMonth() === 11 && now.getDate() === 31 &&
+                hours === '23' && minutes === '50' && seconds === '00') {
+                const video = document.getElementById('video');
+                const watch = document.getElementById('watch');
+                watch.style.display = 'none';
+                clearInterval(intervalId);
+                video.style.display = 'block';
+                video.play();
+            }
+        }
+
+    </script>
+</body>
+
+</html>
